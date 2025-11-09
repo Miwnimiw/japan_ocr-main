@@ -1,0 +1,45 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+android {
+    namespace "com.example.app_ocr_japan"
+    compileSdkVersion 36
+
+    defaultConfig {
+        applicationId = "com.example.app_ocr_japan"
+        minSdk = flutter.minSdkVersion
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flutter {
+        source = "../.."
+    }
+}
+
+dependencies {
+    implementation "com.google.mlkit:text-recognition:16.0.0" // ตัวพื้นฐาน
+    implementation "com.google.mlkit:text-recognition-japanese:16.0.0" // OCR ญี่ปุ่น
+}
