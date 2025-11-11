@@ -4,7 +4,7 @@ import 'package:app_ocr_japan/ocr_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await OcrService.init(); // โหลด OCR ให้เสร็จก่อนเข้าแอป
+  // await OcrService.init(); // โหลด OCR ให้เสร็จก่อนเข้าแอป
   runApp(const MyApp());
 }
 
